@@ -6,8 +6,6 @@ set(CMAKE_DEBUG_POSTFIX d)
 file(GLOB SOURCES jbig2*.c)
 list(REMOVE_ITEM SOURCES
   "${CMAKE_CURRENT_SOURCE_DIR}/jbig2dec.c"
-  #"${CMAKE_CURRENT_SOURCE_DIR}/jbig2_image_png.c"
-  #"${CMAKE_CURRENT_SOURCE_DIR}/jbig2_image_pbm.c"
 )
 
 add_library(jbig2dec ${SOURCES})
