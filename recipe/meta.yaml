@@ -10,7 +10,7 @@ source:
   sha256: f72bad7102638b31fa96be7492fb3d447a83d71c644cffd01f2a7ec52bd5fb72
 
 build:
-  number: 0
+  number: 1
   run_exports:
     - {{ pin_subpackage('jbig2dec', max_pin='x.x') }}
 
