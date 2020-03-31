@@ -1,5 +1,8 @@
 setlocal EnableDelayedExpansion
 
+copy "%RECIPE_DIR%\\CMakeLists.txt" .
+if errorlevel 1 exit 1
+
 :: Make a build folder and change to it.
 mkdir build
 cd build
