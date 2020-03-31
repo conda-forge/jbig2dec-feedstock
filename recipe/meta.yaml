@@ -17,7 +17,8 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
+    - cmake  # [win]
+    - make  # [not win]
     - pkg-config
   host:
     - zlib
