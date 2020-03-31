@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-1project(jbig2dec C)
+project(jbig2dec C)
 
 set(CMAKE_DEBUG_POSTFIX d)
 
