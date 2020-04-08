@@ -20,6 +20,8 @@ requirements:
     - {{ compiler('c') }}
     - cmake  # [win]
     - make
+    - autoconf  # [unix]
+    - automake  # [unix]
     - pkg-config
   host:
     - zlib
