@@ -1,16 +1,17 @@
 {% set name = "jbig2dec" %}
-{% set version = "0.17" %}
+{% set version = "0.18" %}
+{% set ghostscript_tag = "gs952" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs950/jbig2dec-{{ version }}.tar.gz
-  sha256: f72bad7102638b31fa96be7492fb3d447a83d71c644cffd01f2a7ec52bd5fb72
+  url: https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/{{ ghostscript_tag }}/jbig2dec-{{ version }}.tar.gz
+  sha256: 9e19775237350e299c422b7b91b0c045e90ffa4ba66abf28c8fb5eb005772f5e
 
 build:
-  number: 1
+  number: 0
   run_exports:
     - {{ pin_subpackage('jbig2dec', max_pin='x.x') }}
 
