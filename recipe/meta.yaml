@@ -20,6 +20,7 @@ requirements:
     - {{ compiler('c') }}
     - cmake  # [win]
     - make
+    - libtool  # [unix]
     - autoconf  # [unix]
     - automake  # [unix]
     - pkg-config
