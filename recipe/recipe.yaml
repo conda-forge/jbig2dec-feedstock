@@ -18,11 +18,15 @@ requirements:
   build:
     - ${{ compiler('c') }}
     - ${{ stdlib('c') }}
-    - cmake  # [win]
+    - if: win
+      then:
+        - cmake
     - make
-    - libtool  # [unix]
-    - autoconf  # [unix]
-    - automake  # [unix]
+    - if: unix
+      then:
+        - libtool
+        - autoconf
+        - automake
     - pkg-config
   host:
     - zlib
