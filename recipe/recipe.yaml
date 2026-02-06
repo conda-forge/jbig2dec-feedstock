@@ -1,24 +1,23 @@
-{% set name = "jbig2dec" %}
-{% set version = "0.20" %}
+schema_version: 1
 
+context:
+  version: "0.20"
 
 package:
-  name: {{ name|lower }}
-  version: {{ version }}
+  name: jbig2dec
+  version: ${{ version }}
 
 source:
-  url: https://github.com/ArtifexSoftware/jbig2dec/releases/download/{{ version }}/jbig2dec-{{ version }}.tar.gz
+  url: https://github.com/ArtifexSoftware/jbig2dec/releases/download/${{ version }}/jbig2dec-${{ version }}.tar.gz
   sha256: 7b63ff6470289547e7a3a0f145cb8ea6c2afffdd65645b7d87d3b7febc96fb3a
 
 build:
   number: 0
-  run_exports:
-    - {{ pin_subpackage('jbig2dec', max_pin='x.x') }}
 
 requirements:
   build:
-    - {{ compiler('c') }}
-    - {{ stdlib('c') }}
+    - ${{ compiler('c') }}
+    - ${{ stdlib('c') }}
     - cmake  # [win]
     - make
     - libtool  # [unix]
@@ -28,15 +27,16 @@ requirements:
   host:
     - zlib
     - libpng
+  run_exports:
+    - ${{ pin_subpackage('jbig2dec', upper_bound='x.x') }}
 
-test:
-  commands:
+tests:
+  - script:
     - jbig2dec --help
 
 about:
-  home: https://jbig2dec.com/
+  homepage: https://jbig2dec.com/
   license: AGPL-3.0-only
-  license_family: AGPL
   license_file: COPYING
   summary: 'A decoder implementation of the JBIG2 image compression format'
   description: |
