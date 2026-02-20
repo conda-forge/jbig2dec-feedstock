@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -ex
 
-autoreconf -i
+# Update config.sub and config.guess to support arm64-apple-darwin
+# The source tarball has 2015 versions which predate Apple Silicon
+autoreconf -vfi
 ./configure \
   --prefix="${PREFIX}" \
   --with-libpng="${PREFIX}"
